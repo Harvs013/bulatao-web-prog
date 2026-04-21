@@ -1,4 +1,4 @@
-    import Button from '../components/button';
+    import Button from '../components/Button';
     import blackpinkcover from '../assets/blackpinkcover.jpg';
     import JENNIE from '../assets/JENNIE.jpg';
     import JISOO from '../assets/JISOO.jpg';
@@ -16,7 +16,7 @@
                     <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
                         <div>
                             <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-zinc-500">
-                                Hero Section
+                                YG ENTERTAINMENT
                             </p>
                            <h1 className="max-w-xl text-3xl font-bold leading-tight text-zinc-900 drop-shadow-[0_0_10px_#ff69b4] sm:text-4xl">
                                 BLACKPINK IN YOUR AREA!

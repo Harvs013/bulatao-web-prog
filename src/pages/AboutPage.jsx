@@ -1,4 +1,4 @@
-import Button from '../components/button';
+import Button from '../components/Button';
 import blackpinkcover from '../assets/blackpinkcover.jpg';
 import JENNIE from '../assets/JENNIE.jpg';
 import JISOO from '../assets/JISOO.jpg';
@@ -30,7 +30,7 @@ const AboutPage = () => {
                         <p className="mt-4 max-w-lg text-sm leading-7 text-zinc-700 sm:text-base">
                             DEBUT 2019.02.09
                         </p>
-                        <div className="mt-6 flex flex-wrap gap-3">
+                        <div className="mt-6 flex flex-wrap gap-3 justify-center">
                             <Button to="/" variant="primary">
                                 Back Home
                             </Button>
