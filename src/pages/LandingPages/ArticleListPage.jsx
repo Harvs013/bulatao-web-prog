@@ -1,8 +1,8 @@
-import Button from "../components/Button";
-import ArticleList from "../components/ArticleList";
-import articles from "../assets/article-contents.js";
+import Button from "../../components/Button.jsx";
+import ArticleList from "../../components/ArticleList.jsx";
+import articles from "../../assets/article-contents.js";
 
-import coverbp from '../assets/coverbp.jpg';
+import coverbp from '../../assets/coverbp.jpg';
 
 const ArticleListPage = () => {
   return (

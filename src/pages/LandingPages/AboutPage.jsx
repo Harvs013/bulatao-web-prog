@@ -1,9 +1,9 @@
-import Button from '../components/Button';
-import blackpinkcover from '../assets/blackpinkcover.jpg';
-import JENNIE from '../assets/JENNIE.jpg';
-import JISOO from '../assets/JISOO.jpg';
-import LISA from '../assets/LISA.jpg';
-import ROSE from '../assets/ROSE.jpg';
+import Button from '../../components/Button';
+import blackpinkcover from '../../assets/blackpinkcover.jpg';
+import JENNIE from '../../assets/JENNIE.jpg';
+import JISOO from '../../assets/JISOO.jpg';
+import LISA from '../../assets/LISA.jpg';
+import ROSE from '../../assets/ROSE.jpg';
 
 const AboutPage = () => {
     return (
