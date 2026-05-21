@@ -35,7 +35,6 @@ const NavBar = () => {
                     ))}
                 </nav>
 
-                {/* 🔥 ACCESS POINT (NEW) */}
                 <div className="flex items-center gap-2">
                     <Button to="/auth/signin" variant="secondary">
                         Sign In
