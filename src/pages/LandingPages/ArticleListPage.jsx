@@ -1,10 +1,24 @@
+import { useState, useEffect } from "react";
 import Button from "../../components/Button.jsx";
 import ArticleList from "../../components/ArticleList.jsx";
-import articles from "../../assets/article-contents.js";
-
+import { fetchArticles } from "../../service/articleService";
 import coverbp from '../../assets/coverbp.jpg';
 
 const ArticleListPage = () => {
+  const [articles, setArticles] = useState([]);
+
+  useEffect(() => {
+    const loadArticles = async () => {
+      try {
+        const { data } = await fetchArticles();
+        setArticles(data); // data is already an array
+      } catch (error) {
+        console.error('Error fetching articles:', error);
+      }
+    };
+    loadArticles();
+  }, []);
+
   return (
     <div className="flex w-full flex-col gap-6">
       <section className="border-y-2 border-zinc-900 bg-pink-300 px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
@@ -28,7 +42,6 @@ const ArticleListPage = () => {
             Featured Articles
           </p>
         </div>
-
         <ArticleList articles={articles} />
       </section>
     </div>

@@ -19,6 +19,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 
+
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 import SearchIcon from "@mui/icons-material/Search";
@@ -28,11 +29,13 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import PeopleIcon from "@mui/icons-material/People";
 import AssessmentIcon from "@mui/icons-material/Assessment";
+import ArticleIcon from "@mui/icons-material/Article";
 
 const drawerWidth = 240;
 
 const dashboardNavItems = [
   { label: "Dashboard", title: "Dashboard", to: "/dashboard", icon: DashboardIcon },
+  { label: "Articles", title: "Articles", to: "/dashboard/articles", icon: ArticleIcon },
   { label: "Reports", title: "Reports", to: "/dashboard/reports", icon: AssessmentIcon },
   { label: "Users", title: "Users", to: "/dashboard/users", icon: PeopleIcon },
 ];

@@ -1,11 +1,30 @@
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Button from '../../components/Button.jsx';
-import articles from '../../assets/article-contents.js';
 import logoblackpink from '../../assets/logoblackpink.png';
+import axios from 'axios';
+import constants from '../../constant';
 
 function ArticlePage() {
-  const { name } = useParams();
-  const article = articles.find(article => article.name === name);
+  const { id } = useParams();
+  const [article, setArticle] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchArticle = async () => {
+      try {
+        const { data } = await axios.get(`${constants.HOST}/api/articles/${id}`);
+        setArticle(data);
+      } catch (error) {
+        console.error('Error fetching article:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchArticle();
+  }, [id]);
+
+  if (loading) return <div className="text-zinc-400 p-8">Loading...</div>;
 
   if (!article) {
     return (
@@ -41,21 +60,20 @@ function ArticlePage() {
 
       <section className="border-y-2 border-zinc-900 bg-zinc-700 px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
         <div className="mx-auto max-w-3xl">
-                      {article.image ? (
-                        <img src={article.image} alt={article.title} className="w-full h-full max-h-[400px] object-contain rounded-[1.25rem] mb-8" />
-                      ) : (
-                        <div className="flex aspect-4/3 items-center justify-center rounded-[1.25rem] border-2 border-zinc-900 bg-zinc-200 mb-8">
-                          <div className="h-24 w-24 border-2 border-zinc-300 bg-zinc-100" />
-                        </div>
-                      )}
+          {article.image ? (
+            <img src={article.image} alt={article.title} className="w-full h-full max-h-[400px] object-contain rounded-[1.25rem] mb-8" />
+          ) : (
+            <div className="flex aspect-4/3 items-center justify-center rounded-[1.25rem] border-2 border-zinc-900 bg-zinc-200 mb-8">
+              <div className="h-24 w-24 border-2 border-zinc-300 bg-zinc-100" />
+            </div>
+          )}
 
-          <div className="prose prose-sm max-w-none space-y-4 text-zinc-700">
-            {article.content.map((paragraph, index) => (
-              <p key={index} className="text-base leading-7 text-pink-300 whitespace-pre-wrap">
-                {paragraph}
-              </p>
-            ))}
-          </div>
+          <h1 className="text-2xl font-bold text-pink-300 mb-2">{article.title}</h1>
+          <p className="text-sm text-zinc-400 mb-6">By {article.author} · {article.category}</p>
+
+          <p className="text-base leading-7 text-pink-300 whitespace-pre-wrap">
+            {article.body}
+          </p>
 
           <div className="mt-8 border-t-2 border-zinc-900 pt-6">
             <Button to="/articles">Back to Articles</Button>

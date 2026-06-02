@@ -1,6 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-// HomePage Structure
 import Layout from './components/layouts/Layout';
 import ArticlePage from './pages/LandingPages/ArticlePage';
 import HomePage from './pages/LandingPages/HomePage';
@@ -14,8 +13,10 @@ import SignUpPage from './pages/AuthPages/SignUpPage';
 import DashLayout from './components/layouts/DashLayout';
 import DashboardPage from './pages/DashboardPages/DashboardPage';
 import UsersPage from './pages/DashboardPages/UsersPage';
+import DashArticleListPage from './pages/DashboardPages/DashArticleListPage';
 import ReportsPage from './pages/DashboardPages/ReportsPage';
 
+import ProtectedRoute from './components/protectedRoute.jsx';
 import NotFoundPage from './pages/NotFoundPage';
 
 const routes = [
@@ -24,22 +25,10 @@ const routes = [
     element: <Layout />,
     errorElement: <NotFoundPage />,
     children: [
-      {
-        path: '',
-        element: <HomePage />,
-      },
-      {
-        path: 'about',
-        element: <AboutPage />,
-      },
-      {
-        path: 'articles',
-        element: <ArticleListPage />,
-      },
-      {
-        path: 'articles/:name',
-        element: <ArticlePage />,
-      },
+      { path: '', element: <HomePage /> },
+      { path: 'about', element: <AboutPage /> },
+      { path: 'articles', element: <ArticleListPage /> },
+      { path: 'articles/:id', element: <ArticlePage /> },
     ],
   },
   {
@@ -47,33 +36,44 @@ const routes = [
     element: <AuthLayout />,
     errorElement: <NotFoundPage />,
     children: [
-      {
-        path: 'signin',
-        element: <SignInPage />,
-      },
-      {
-        path: 'signup',
-        element: <SignUpPage />,
-      },
+      { path: 'signin', element: <SignInPage /> },
+      { path: 'signup', element: <SignUpPage /> },
     ],
   },
-
   {
-    path: "dashboard/",
-    element: <DashLayout />,
+    path: 'dashboard/',
+    element: (
+      <ProtectedRoute allowedRoles={['admin', 'editor']}>
+        <DashLayout />
+      </ProtectedRoute>
+    ),
     errorElement: <NotFoundPage />,
     children: [
       {
-        path: "",
+        path: '',
         element: <DashboardPage />,
       },
       {
-        path: "reports",
+        path: 'reports',
         element: <ReportsPage />,
       },
       {
-        path: "users",
-        element: <UsersPage />,
+        // Enhancement 1: only admins can access UsersPage
+        path: 'users',
+        element: (
+          <ProtectedRoute allowedRoles={['admin']}>
+            <UsersPage />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        // Enhancement 2: admins and editors can manage articles
+        path: 'articles',
+        element: (
+          <ProtectedRoute allowedRoles={['admin', 'editor']}>
+            <DashArticleListPage />
+          </ProtectedRoute>
+        ),
       },
     ],
   },
@@ -82,11 +82,7 @@ const routes = [
 const router = createBrowserRouter(routes);
 
 function App() {
-  return (
-    <>
-      <RouterProvider router={router} />
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
