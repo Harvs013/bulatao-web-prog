@@ -1,0 +1,80 @@
+[
+  {
+    "firstName": "Vince",
+    "lastName": "Harvey",
+    "age": "29",
+    "gender": "female",
+    "contactNumber": "09171234567",
+    "email": "vince.harvey@gmail.com",
+    "role": "admin",
+    "username": "vinceharvey",
+    "password": "Vince123!",
+    "address": "Sampaloc, Manila, Metro Manila",
+    "isActive": true
+  },
+  {
+    "firstName": "Harvey",
+    "lastName": "Bulatao",
+    "age": "31",
+    "gender": "male",
+    "contactNumber": "09182345678",
+    "email": "harvey.bulatao@gmail.com",
+    "role": "viewer",
+    "username": "harveybulatao",
+    "password": "Harvey123!",
+    "address": "Tondo, Manila, Metro Manila",
+    "isActive": true
+  },
+  {
+    "firstName": "Harvey",
+    "lastName": "Vince",
+    "age": "26",
+    "gender": "female",
+    "contactNumber": "09193456789",
+    "email": "harvey.vince@gmail.com",
+    "role": "editor",
+    "username": "harveyvince",
+    "password": "Harvey123!",
+    "address": "Quezon City, Metro Manila",
+    "isActive": false
+  },
+  {
+    "firstName": "Harvince",
+    "lastName": "Mariano",
+    "age": "34",
+    "gender": "male",
+    "contactNumber": "09214567890",
+    "email": "harvince.mariano@gmail.com",
+    "role": "viewer",
+    "username": "harvincemariano",
+    "password": "harvince123!",
+    "address": "Pasig City, Metro Manila",
+    "isActive": true
+  },
+  {
+    "firstName": "Harvs",
+    "lastName": "Cute",
+    "age": "28",
+    "gender": "female",
+    "contactNumber": "09225678901",
+    "email": "harvs.cute@gmail.com",
+    "role": "editor",
+    "username": "harvscute",
+    "password": "Harvs123!",
+    "address": "Makati City, Metro Manila",
+    "isActive": false
+  },
+  {
+    "firstName": "Cute",
+    "lastName": "Vince",
+    "age": "33",
+    "gender": "male",
+    "contactNumber": "09236789012",
+    "email": "cute.vince@gmail.com",
+    "role": "viewer",
+    "username": "cutevince",
+    "password": "Cute123!",
+    "address": "Taguig City, Metro Manila",
+    "isActive": true
+  }
+]
