@@ -52,7 +52,7 @@ const SignInPage = () => {
       setLoading(true);
       const { data } = await loginUser({ email: form.email, password: form.password });
 
-      // Enhancement 1: block viewers from accessing the dashboard
+     
       if (data.type === 'viewer') {
         setApiError('Viewer accounts do not have dashboard access.');
         return;

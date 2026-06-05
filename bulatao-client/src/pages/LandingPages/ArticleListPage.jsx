@@ -11,7 +11,7 @@ const ArticleListPage = () => {
     const loadArticles = async () => {
       try {
         const { data } = await fetchArticles();
-        setArticles(data); // data is already an array
+        setArticles(data); 
       } catch (error) {
         console.error('Error fetching articles:', error);
       }
