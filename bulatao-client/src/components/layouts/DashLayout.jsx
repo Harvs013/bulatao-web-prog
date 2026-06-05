@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Outlet, Link, useLocation, useNavigate } from "react-router-dom";
-import { styled, useTheme, alpha } from "@mui/material/styles";
+import { styled, useTheme } from "@mui/material/styles";
 
 import Box from "@mui/material/Box";
 import MuiDrawer from "@mui/material/Drawer";
@@ -255,7 +255,7 @@ const DashLayout = () => {
         <Divider sx={{ borderColor: "#3f3f46" }} />
 
         <List>
-          {dashboardNavItems.map(({ label, to, icon: Icon }) => {
+          {dashboardNavItems.map(({ label, to, icon: NavIcon }) => {
             const isActive = location.pathname === to;
             return (
               <ListItem key={to} disablePadding sx={{ display: "block" }}>
@@ -291,7 +291,7 @@ const DashLayout = () => {
                       color: isActive ? "#f472b6" : "#71717a",
                     }}
                   >
-                    <Icon />
+                    {React.createElement(NavIcon)}
                   </ListItemIcon>
 
                   <ListItemText

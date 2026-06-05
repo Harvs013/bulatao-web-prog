@@ -1,4 +1,3 @@
-import musicbank from './musicbank.jpg';
 import bpthevirtual from './bpthevirtual.jpg';
 import bpfy from './bpfy.jpg';
 import lisavma from './lisavma.jpg';

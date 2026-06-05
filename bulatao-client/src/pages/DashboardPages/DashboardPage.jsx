@@ -1,5 +1,4 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
 
 import { BarChart } from '@mui/x-charts/BarChart';
 import { Gauge } from '@mui/x-charts/Gauge';

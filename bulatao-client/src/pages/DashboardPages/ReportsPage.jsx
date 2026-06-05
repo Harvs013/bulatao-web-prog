@@ -392,18 +392,12 @@ const ReportsPage = () => {
           <button
             onClick={generateReport}
             style={{
+              ...btnBase,
               background: '#f472b6',
               color: '#18181b',
-              fontWeight: 700,
-              fontSize: '11px',
-              letterSpacing: '0.2em',
-              textTransform: 'uppercase',
               border: 'none',
-              borderRadius: '20px',
               padding: '6px 18px',
-              cursor: 'pointer',
               height: '40px',
-              lineHeight: 1,
             }}
           >
             Export
@@ -411,36 +405,26 @@ const ReportsPage = () => {
           <button
             onClick={handlePrint}
             style={{
+              ...btnBase,
               background: 'transparent',
               color: '#f472b6',
               fontWeight: 600,
-              fontSize: '11px',
-              letterSpacing: '0.2em',
-              textTransform: 'uppercase',
               border: '1px solid #f472b6',
-              borderRadius: '20px',
               padding: '6px 18px',
-              cursor: 'pointer',
               height: '40px',
-              lineHeight: 1,
             }}
           >
             Print
           </button>
           <button
             style={{
+              ...btnBase,
               background: 'transparent',
               color: '#71717a',
               fontWeight: 600,
-              fontSize: '11px',
-              letterSpacing: '0.2em',
-              textTransform: 'uppercase',
               border: '1px solid #3f3f46',
-              borderRadius: '20px',
               padding: '6px 18px',
-              cursor: 'pointer',
               height: '40px',
-              lineHeight: 1,
             }}
           >
             Filter
