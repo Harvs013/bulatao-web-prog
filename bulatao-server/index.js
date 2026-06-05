@@ -1,7 +1,6 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-const path = require("path");
 const bodyParser = require("body-parser");
 const jsonParser = bodyParser.json();
 const connectDB = require("./config/db");
@@ -10,8 +9,15 @@ const articleRoutes = require("./routes/articleRoutes");
 
 const app = express();
 
-// Database Connection
-connectDB();
+const withDB = async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Database connection failed" });
+  }
+};
 
 app.use(express.json());
 
@@ -49,8 +55,12 @@ app.use((req, res, next) => {
 });
 
 // Routes
-app.use("/api/users", userRoutes);
-app.use("/api/articles", articleRoutes);
+app.get("/", (req, res) => {
+  res.json({ status: "ok" });
+});
+
+app.use("/api/users", withDB, userRoutes);
+app.use("/api/articles", withDB, articleRoutes);
 
 // Error Handling
 app.use((err, req, res, next) => {
@@ -59,4 +69,8 @@ app.use((err, req, res, next) => {
 });
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+if (process.env.NODE_ENV !== "production") {
+  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+}
+
+module.exports = app;
